@@ -6,4 +6,4 @@ module.exports = {
     await interaction.reply(
       interaction.guild.emojis.cache.find(emoji => emoji.name === 'pogsaac').toString());
   },
-}
+};
