@@ -2,6 +2,20 @@
 
 Funky is a Discord bot created using discord.js. It is a personal attempt to clone [Groovy](https://groovy.bot/), a popular music streaming bot.
 
-## Resources
+## Commands
 
-- Gabriel Tanner's [How to create a music bot using Discord.js](https://gabrieltanner.org/blog/dicord-music-bot)
+Commands listed in this table are *planned* to be implemented. If a command isn't listed here, then
+I have no plans to implement it currently.
+
+| Command     | Implemented? |
+| ----------- | ------------ |
+| /play       | No           |
+| /queue      | No           |
+| /skip       | No           |
+| /back       | No           |
+| /song       | No           |
+| /clear      | No           |
+| /pause      | No           |
+| /unpause    | No           |
+| /remove     | No           |
+| /disconnect | No           |
