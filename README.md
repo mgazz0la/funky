@@ -19,3 +19,19 @@ I have no plans to implement it currently.
 | /unpause    | No           |
 | /remove     | No           |
 | /disconnect | No           |
+
+## Installation
+
+#### Dependencies
+
+* [Node.js](https://nodejs.org/) v16.6+
+* [FFmpeg](https://www.ffmpeg.org/) (ensure this is added to your PATH)
+
+#### Running
+
+1. `git clone https://github.com/mgazz0la/funky.git`
+2. `cd funky`
+3. `npm install`
+4. Create `config.json` from `config.json.example` and fill in all fields
+5. If you want to register slash commands for your server you'll need to run `node interactionCreate.js`
+6. `node index.js` to run the bot

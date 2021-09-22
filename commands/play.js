@@ -1,9 +1,7 @@
-const fs = require('fs');
-const ytdl = require('ytdl-core-discord');
+const ytdl = require('ytdl-core');
 const { guildId, audioChannelId } = require('../config.json');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { joinVoiceChannel, createAudioResource, StreamType, AudioPlayerStatus, createAudioPlayer } = require('@discordjs/voice');
-const {getInfo} = require('ytdl-core');
 
 module.exports = {
   data:
