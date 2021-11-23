@@ -1,6 +1,6 @@
 # Funky
 
-Funky is a Discord bot created using discord.js. It is a personal attempt to clone [Groovy](https://groovy.bot/), a popular music streaming bot.
+Funky is a Typescript Discord bot built on discord.js. It is a personal attempt to clone [Groovy](https://groovy.bot/), a popular music streaming bot.
 
 ## Commands
 
@@ -9,7 +9,7 @@ I have no plans to implement it currently.
 
 | Command     | Implemented? |
 | ----------- | ------------ |
-| /play       | No           |
+| /play       | Partial      |
 | /queue      | No           |
 | /skip       | No           |
 | /back       | No           |
