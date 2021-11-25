@@ -22,7 +22,7 @@ export class PogCommandHandler extends CommandHandler {
     await interaction.reply(
       interaction.guild.emojis.cache
         .find((emoji) => emoji.name === "pogsaac")
-        ?.toString() ?? "\:open_mouth:"
+        ?.toString() ?? ":open_mouth:"
     );
   }
 }
