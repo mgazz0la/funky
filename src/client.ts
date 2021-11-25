@@ -21,5 +21,5 @@ client.on("interactionCreate", async function (interaction: Interaction) {
 // Login to Discord with your client's token
 client
   .login(token)
-  .then(() => console.log("We be groovin'"))
+  .then(() => console.log("OK"))
   .catch((err) => console.error(err));
