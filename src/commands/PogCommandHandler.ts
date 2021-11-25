@@ -19,11 +19,10 @@ export class PogCommandHandler extends CommandHandler {
       return;
     }
 
-    console.log(interaction.guild.emojis.cache);
     await interaction.reply(
       interaction.guild.emojis.cache
         .find((emoji) => emoji.name === "pogsaac")
-        ?.toString() ?? "I am unable to pog right now :("
+        ?.toString() ?? "\:open_mouth:"
     );
   }
 }
