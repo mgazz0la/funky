@@ -1,10 +1,8 @@
 // TODO: Encapsulate these types as like a DiscordPacket or something.
-import {
-  Client as DiscordClient,
-  Interaction as DiscordInteraction,
-} from "discord.js";
+import { Interaction as DiscordInteraction } from "discord.js";
+import { FunkyBot } from "../funky";
 
 export type EventHandler = {
   eventName: () => string;
-  do: (_: DiscordInteraction, __: DiscordClient) => Promise<void>;
+  do: (_: DiscordInteraction, __: FunkyBot) => Promise<void>;
 };

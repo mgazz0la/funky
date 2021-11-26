@@ -1,5 +1,9 @@
-import { Client, Interaction, TextChannel } from "discord.js";
+import {
+  Interaction as DiscordInteraction,
+  TextChannel as DiscordTextChannel,
+} from "discord.js";
 import { COMMANDS } from "../commands/commands";
+import { FunkyBot } from "../funky";
 
 export class InteractionCreateEvent {
   public static eventName(): string {
@@ -7,8 +11,8 @@ export class InteractionCreateEvent {
   }
 
   public static async do(
-    interaction: Interaction,
-    client: Client
+    interaction: DiscordInteraction,
+    funkyBot: FunkyBot
   ): Promise<void> {
     if (!interaction.isCommand()) {
       console.log("Not a command.");
@@ -17,7 +21,7 @@ export class InteractionCreateEvent {
 
     console.log(
       `${interaction.commandName} [${interaction.user.tag} in #${
-        (interaction.channel as TextChannel).name
+        (interaction.channel as DiscordTextChannel).name
       }]`
     );
 
@@ -27,7 +31,7 @@ export class InteractionCreateEvent {
 
     if (!handler) return;
     try {
-      await handler.do(interaction, client);
+      await handler.do(interaction, funkyBot.sessionManager);
     } catch (error) {
       console.error(error);
     }

@@ -9,7 +9,7 @@ I have no plans to implement it currently.
 
 | Command     | Implemented? |
 | ----------- | ------------ |
-| /play       | Partial      |
+| /play       | Yes          |
 | /queue      | No           |
 | /skip       | No           |
 | /back       | No           |

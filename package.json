@@ -36,15 +36,19 @@
     "discord.js": "^13.1.0",
     "ffmpeg-static": "^4.4.0",
     "libsodium-wrappers": "^0.7.9",
+    "uuid": "^8.3.2",
     "ytdl-core": "^4.9.1"
   },
   "devDependencies": {
+    "@types/memory-cache": "^0.2.1",
     "@types/node-fetch": "2.5.12",
+    "@types/uuid": "^8.3.3",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "memory-cache": "^0.2.0",
     "nodemon": "^2.0.15",
     "ts-node": "^10.4.0",
     "typescript": "^4.4.3"
