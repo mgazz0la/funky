@@ -2,13 +2,14 @@
   "name": "funky",
   "description": "Discord music bot",
   "version": "1.0.0",
-  "main": "build/src/client.js",
+  "main": "build/src/main.js",
   "scripts": {
     "build": "tsc",
-    "start": "node build/src/client.js",
-    "serve": "nodemon --exec node --loader ts-node/esm/transpile-only src/client.ts",
-    "dev": "node --loader ts-node/esm/transpile-only src/client.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc && node build/src/main.js",
+    "serve": "nodemon --exec node --loader ts-node/esm/transpile-only src/main.ts",
+    "dev": "node --loader ts-node/esm/transpile-only src/main.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy-cmds": "tsc && node build/src/tools/deploy-guild-commands.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "ytdl-core": "^4.9.1"
   },
   "devDependencies": {
+    "@types/node-fetch": "2.5.12",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
     "eslint": "^7.32.0",
