@@ -7,16 +7,15 @@ import {
 } from "@discordjs/voice";
 import { CommandInteraction } from "discord.js";
 import ytdl = require("ytdl-core");
-import { CommandHandler } from "./CommandHandler";
 import { guildId, audioChannelId } from "../../config.json";
 import { SlashCommandBuilder } from "@discordjs/builders";
 
-export class PlayCommandHandler extends CommandHandler {
-  public name(): string {
+export class PlayCommandHandler {
+  public static commandName(): string {
     return "play";
   }
 
-  public builder(): SlashCommandBuilder {
+  public static builder(): SlashCommandBuilder {
     const builder = new SlashCommandBuilder()
       .setName("play")
       .setDescription("Plays a YT link.");
@@ -27,7 +26,7 @@ export class PlayCommandHandler extends CommandHandler {
     return builder;
   }
 
-  public async do(interaction: CommandInteraction): Promise<void> {
+  public static async do(interaction: CommandInteraction): Promise<void> {
     if (!interaction.guild) {
       console.log("guild not found");
       return;
