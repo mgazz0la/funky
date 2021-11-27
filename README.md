@@ -15,8 +15,8 @@ I have no plans to implement it currently.
 | /back       | No           |
 | /song       | No           |
 | /clear      | No           |
-| /pause      | No           |
-| /unpause    | No           |
+| /pause      | Yes          |
+| /unpause    | Yes          |
 | /remove     | No           |
 | /disconnect | No           |
 
