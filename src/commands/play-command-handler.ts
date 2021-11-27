@@ -1,18 +1,23 @@
 import { CommandInteraction } from "discord.js";
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { SessionManager } from "../session-manager";
+import * as yt from "youtube-search-without-api-key";
 
 export class PlayCommandHandler {
+  private static readonly COMMAND_NAME: string = "play";
   public static commandName(): string {
-    return "play";
+    return this.COMMAND_NAME;
   }
 
   public static builder(): SlashCommandBuilder {
     const builder = new SlashCommandBuilder()
-      .setName("play")
+      .setName(this.COMMAND_NAME)
       .setDescription("Plays a YT link.");
     builder.addStringOption((option) =>
-      option.setName("link").setDescription("YT link to play").setRequired(true)
+      option
+        .setName("song")
+        .setDescription("Name of (or URL for) the song to play")
+        .setRequired(true)
     );
 
     return builder;
@@ -28,15 +33,23 @@ export class PlayCommandHandler {
     }
     const guildId = interaction.guildId;
 
-    const link = interaction.options.getString("link");
-    if (!link) {
-      console.log("error receiving url");
+    let song: string = interaction.options.getString("song") || "";
+    if (!song) {
+      interaction.reply("You must specify a song to play!");
       return;
+    }
+
+    if (
+      !song.match(
+        /(http:|https:)?\/\/(www\.)?(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/
+      )
+    ) {
+      song = (await yt.search(song))[0].snippet.url;
     }
 
     const response: string = await sessionManager.sessionPlay(
       guildId,
-      link,
+      song,
       interaction
     );
     if (response) {
