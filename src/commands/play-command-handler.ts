@@ -34,8 +34,13 @@ export class PlayCommandHandler {
       return;
     }
 
-    interaction.reply(
-      await sessionManager.sessionPlay(guildId, link, interaction)
+    const response: string = await sessionManager.sessionPlay(
+      guildId,
+      link,
+      interaction
     );
+    if (response) {
+      interaction.reply(response);
+    }
   }
 }

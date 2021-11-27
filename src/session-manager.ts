@@ -3,6 +3,7 @@ import { DiscordSession } from "./session/discord-session";
 import memoryCache, { CacheClass } from "memory-cache";
 import { Interaction as DiscordInteraction } from "discord.js";
 import {
+  AudioPlayerStatus,
   createAudioPlayer,
   createAudioResource,
   joinVoiceChannel,
@@ -73,5 +74,35 @@ export class SessionManager {
     }
 
     return `playing [${url}]`;
+  }
+
+  public async sessionPause(discordGuildId: string): Promise<string> {
+    const session = this.discordSessionCache.get(discordGuildId);
+    if (
+      !session ||
+      !session.voiceConnection ||
+      !session.player ||
+      session.player.state.status !== AudioPlayerStatus.Playing
+    ) {
+      return "Nothing is currently playing, ya dingus";
+    } else {
+      session.player.pause();
+      return "shhh";
+    }
+  }
+
+  public async sessionUnpause(discordGuildId: string): Promise<string> {
+    const session = this.discordSessionCache.get(discordGuildId);
+    if (
+      !session ||
+      !session.voiceConnection ||
+      !session.player ||
+      session.player.state.status !== AudioPlayerStatus.Paused
+    ) {
+      return "Nothing is currently paused, ya dingus";
+    } else {
+      session.player.unpause();
+      return ":call_me: it's lit fam";
+    }
   }
 }
