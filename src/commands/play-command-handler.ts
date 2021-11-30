@@ -44,7 +44,8 @@ export class PlayCommandHandler {
         /(http:|https:)?\/\/(www\.)?(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/
       )
     ) {
-      song = (await yt.search(song))[0].snippet.url;
+      song = (await yt.search(song + " music song track audio mp3"))[0].snippet
+        .url;
     }
 
     const response: string = await sessionManager.sessionPlay(
