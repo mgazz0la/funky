@@ -33,5 +33,5 @@ I have no plans to implement it currently.
 2. `cd funky`
 3. `npm install`
 4. Create `config.json` from `config.json.example` and fill in all fields
-5. If you want to register slash commands for your server you'll need to run `node tools/interactionCreate.js`
+5. If you want to register slash commands for your server you'll need to run `npm run deploy-cmds`
 6. `npm run serve` to run the bot
