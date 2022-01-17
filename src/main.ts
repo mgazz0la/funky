@@ -1,12 +1,10 @@
-import { Client as DiscordClient } from "discord.js";
-import { DiscordIntents } from "./discord/discord-intents";
+import { DiscordClient } from "./discord/discord-client";
 import { Funky } from "./funky";
+import config from "../config.json";
+import { FunkyConfig } from "./funky-config";
 
-const discordClient: DiscordClient = new DiscordClient({
-  intents: DiscordIntents.FUNKYBOT_INTENTS,
-});
-
-const funkyBot = new Funky(discordClient);
+const funkyConfig = config as FunkyConfig;
+const funkyBot = new Funky(funkyConfig, new DiscordClient(funkyConfig.discord));
 
 funkyBot
   .start()
