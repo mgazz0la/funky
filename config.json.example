@@ -1,6 +1,9 @@
 {
-    "clientId": "",
-    "guildId": "",
-    "audioChannelId": "",
-    "token": ""
+	"discord": {
+		"token": "<insert token here>",
+		"commandDeployment": {
+			"clientId": "<client to deploy to>",
+      "guildId": "<guild to deploy to>"
+    }
+  }
 }

@@ -1,5 +1,8 @@
-import { Client as DiscordClient, Interaction } from "discord.js";
-import { token } from "../config.json";
+import {
+  Client as DiscordClient,
+  Interaction as DiscordInteraction,
+} from "discord.js";
+import { FunkyConfig } from "./funky-config";
 import { DiscordEvents } from "./discord/discord-events";
 import { EVENTS } from "./events/events";
 import { SessionManager } from "./session-manager";
@@ -10,14 +13,12 @@ interface FunkyBot {
 }
 
 class Funky implements FunkyBot {
-  // It's perfectly fine to instantiate Funky without a DiscordClient, but the #start() method
-  // will throw an exception if called.
-  //
-  // Consider this class to be in a "data-only" mode when this variable is undefined.
-  readonly discordClient?: DiscordClient;
+  readonly funkyConfig: FunkyConfig;
+  readonly discordClient: DiscordClient;
   readonly sessionManager: SessionManager;
 
-  constructor(discordClient?: DiscordClient) {
+  constructor(funkyConfig: FunkyConfig, discordClient: DiscordClient) {
+    this.funkyConfig = funkyConfig;
     this.discordClient = discordClient;
     this.sessionManager = new SessionManager();
 
@@ -31,7 +32,7 @@ class Funky implements FunkyBot {
 
     this.discordClient.on(
       DiscordEvents.EVENT_INTERACTION_CREATE,
-      (interaction: Interaction) => {
+      (interaction: DiscordInteraction) => {
         // The transpiler forgets that `this.discordClient` is non-null in this context, so we
         // re-assert to make the transpiler feel better.
         if (!this.discordClient) {
@@ -45,7 +46,7 @@ class Funky implements FunkyBot {
       }
     );
 
-    this.discordClient.login(token);
+    this.discordClient.login(this.funkyConfig.discord.token);
   }
 }
 
